@@ -799,163 +799,143 @@
     /* ─── Audience Section ─── */
     .audience-section { background: var(--dark); }
 
-    .audience-grid {
+    /* ─── Audience Profile ─── */
+    .aud-insights {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
       margin-top: 3.5rem;
     }
 
-    .aud-card {
+    .aud-insight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem 1.4rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .aud-insight-card:hover {
+      border-color: rgba(201,166,107,0.3);
+      transform: translateY(-4px);
+    }
+
+    .aud-insight-val {
+      font-family: var(--ff-head);
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
+    }
+
+    .aud-insight-label {
+      font-size: 0.73rem;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .aud-combined-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .aud-combined-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 2.5rem;
-      transition: all 0.35s ease;
+      padding: 2rem;
       overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
     }
 
-    .aud-card:hover {
+    .aud-combined-card:hover {
       border-color: rgba(201,166,107,0.3);
       transform: translateY(-3px);
     }
 
-    .aud-card-title {
+    .aud-combined-title {
       font-family: var(--ff-head);
       font-size: 1.2rem;
       font-weight: 400;
       color: var(--white);
-      margin-bottom: 0.3rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      margin-bottom: 0.25rem;
     }
 
-    /* Gender platforms grid */
-    .gender-platforms-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 1rem;
-    }
-
-    .aud-card-sub {
+    .aud-combined-sub {
       font-size: 0.72rem;
       color: var(--muted);
       letter-spacing: 0.06em;
       margin-bottom: 1.8rem;
     }
 
-    .aud-bars { display: flex; flex-direction: column; gap: 1rem; }
+    /* Horizontal bars (gender) */
+    .aud-hbars { display: flex; flex-direction: column; gap: 1rem; }
 
-    .aud-bar-row { display: flex; flex-direction: column; gap: 0.35rem; }
-
-    .aud-bar-head {
-      display: flex;
-      justify-content: space-between;
+    .aud-hbar-row {
+      display: grid;
+      grid-template-columns: 70px 1fr 45px;
       align-items: center;
+      gap: 0.75rem;
     }
 
-    .aud-bar-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 400;
-    }
+    .aud-hbar-label { font-size: 0.78rem; color: var(--muted); }
 
-    .aud-bar-pct {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--white);
-    }
-
-    .aud-bar-track {
+    .aud-hbar-track {
       height: 8px;
       background: rgba(255,255,255,0.05);
       border-radius: 4px;
       overflow: hidden;
     }
 
-    .aud-bar-fill {
+    .aud-hbar-fill {
       height: 100%;
       border-radius: 4px;
       width: 0%;
       transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
     }
 
-    .fill-gold { background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt)); }
-    .fill-pink { background: linear-gradient(90deg, #9B2C5A, #E1306C); }
-    .fill-teal { background: linear-gradient(90deg, #1a8a90, #69C9D0); }
+    .aud-hbar-pct { font-size: 0.78rem; font-weight: 600; color: var(--white); text-align: right; }
 
-    /* Gender donut */
-    .gender-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
+    /* Geography items */
+    .aud-geo-items { display: flex; flex-direction: column; gap: 0.75rem; }
 
-    .gender-item {
+    .aud-geo-item {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.9rem;
+      padding: 0.75rem 1rem;
+      background: rgba(255,255,255,0.02);
+      border-radius: 10px;
+      border: 1px solid rgba(201,166,107,0.07);
+      transition: border-color 0.3s, background 0.3s;
     }
 
-    .donut-wrap {
-      position: relative;
-      width: 90px;
-      height: 90px;
+    .aud-geo-item:hover {
+      border-color: rgba(201,166,107,0.2);
+      background: rgba(201,166,107,0.03);
     }
 
-    .donut-wrap svg {
-      transform: rotate(-90deg);
-      width: 90px;
-      height: 90px;
-    }
+    .aud-geo-flag { font-size: 1.4rem; line-height: 1; flex-shrink: 0; }
+    .aud-geo-info { flex: 1; }
 
-    .donut-bg {
-      fill: none;
-      stroke: rgba(255,255,255,0.05);
-      stroke-width: 8;
-    }
+    .aud-geo-country { font-size: 0.88rem; font-weight: 500; color: var(--white); margin-bottom: 0.1rem; }
+    .aud-geo-detail { font-size: 0.68rem; color: var(--muted); }
 
-    .donut-arc {
-      fill: none;
-      stroke-width: 8;
-      stroke-linecap: round;
-      stroke-dasharray: 220 220;
-      stroke-dashoffset: 220;
-      transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1);
-    }
-
-    .donut-label {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-    .donut-pct {
-      font-family: var(--ff-head);
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: var(--white);
-      line-height: 1;
-      display: block;
-    }
-
-    .donut-name {
-      font-size: 0.6rem;
-      font-weight: 500;
+    .aud-geo-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: block;
-    }
-
-    .aud-card-wide {
-      grid-column: 1 / -1;
+      color: var(--gold);
+      background: rgba(201,166,107,0.1);
+      border: 1px solid rgba(201,166,107,0.2);
+      border-radius: 20px;
+      padding: 0.18rem 0.55rem;
     }
 
     /* Flag emoji */
@@ -1423,15 +1403,20 @@
       .why-grid { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 900px) {
+      .aud-insights { grid-template-columns: repeat(2, 1fr); }
+      .aud-combined-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
       section { padding: 5rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .contact-socials { flex-wrap: wrap; }
       .hero-actions { flex-direction: column; align-items: center; }
-      .aud-card { padding: 1.4rem; }
-      .aud-card-title { font-size: 1rem; }
-      .gender-platforms-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-      .donut-wrap, .donut-wrap svg { width: 80px; height: 80px; }
+      .aud-insights { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .aud-insight-card { padding: 1.2rem 0.9rem; }
+      .aud-combined-card { padding: 1.4rem; }
+      .aud-hbar-row { grid-template-columns: 55px 1fr 40px; gap: 0.5rem; }
     }
   </style>
 </head>
@@ -1732,146 +1717,88 @@
   <section class="audience-section" id="audience">
     <div class="container">
       <p class="section-label reveal" data-i18n="aud-label">Démographie</p>
-      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="aud-title">Une audience <em>qualifiée</em> & engagée</h2>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="aud-title">Profil de l'<em>audience</em></h2>
 
-      <div class="audience-grid" style="margin-top:3.5rem;">
+      <!-- 4 insight tiles -->
+      <div class="aud-insights">
+        <div class="aud-insight-card reveal reveal-delay-1">
+          <div class="aud-insight-val">~77%</div>
+          <div class="aud-insight-label" data-i18n="aud-insight1">Femmes · toutes plateformes</div>
+        </div>
+        <div class="aud-insight-card reveal reveal-delay-2">
+          <div class="aud-insight-val">71%</div>
+          <div class="aud-insight-label" data-i18n="aud-insight2">Ont entre 18 et 34 ans</div>
+        </div>
+        <div class="aud-insight-card reveal reveal-delay-3">
+          <div class="aud-insight-val">25–34</div>
+          <div class="aud-insight-label" data-i18n="aud-insight3">Tranche core · IG & TT</div>
+        </div>
+        <div class="aud-insight-card reveal reveal-delay-4">
+          <div class="aud-insight-val">FR · US · BR</div>
+          <div class="aud-insight-label" data-i18n="aud-insight4">Top 3 marchés</div>
+        </div>
+      </div>
 
-        <!-- Age Instagram -->
-        <div class="aud-card reveal reveal-delay-2">
-          <div class="aud-card-title">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align:-3px;margin-right:6px;flex-shrink:0" aria-label="Instagram"><defs><linearGradient id="ig-title-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><path fill="url(#ig-title-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Âge · Instagram
-          </div>
-          <div class="aud-card-sub">Tranches d'âge des abonnés</div>
-          <div class="aud-bars">
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">18–24 ans</span>
-                <span class="aud-bar-pct">27,3%</span>
-              </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="27.3"></div></div>
+      <!-- Combined cards -->
+      <div class="aud-combined-grid">
+
+        <!-- Gender combined -->
+        <div class="aud-combined-card reveal reveal-delay-2">
+          <div class="aud-combined-title" data-i18n="aud-gender-title">Genre · combiné</div>
+          <div class="aud-combined-sub" data-i18n="aud-gender-sub">Données pondérées · 131 700 abonnés · IG & TT</div>
+          <div class="aud-hbars">
+            <div class="aud-hbar-row">
+              <span class="aud-hbar-label" data-i18n="aud-women">Femmes</span>
+              <div class="aud-hbar-track"><div class="aud-hbar-fill" data-w="77.3" style="background:linear-gradient(90deg,#9B2C5A,#E1306C)"></div></div>
+              <span class="aud-hbar-pct" style="color:#E1306C">~77%</span>
             </div>
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">25–34 ans <span style="font-size:0.65rem;color:var(--gold);">Core</span></span>
-                <span class="aud-bar-pct">41%</span>
-              </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="41"></div></div>
+            <div class="aud-hbar-row">
+              <span class="aud-hbar-label" data-i18n="aud-men">Hommes</span>
+              <div class="aud-hbar-track"><div class="aud-hbar-fill" data-w="20.5" style="background:linear-gradient(90deg,var(--gold-dk),var(--gold-lt))"></div></div>
+              <span class="aud-hbar-pct">~21%</span>
             </div>
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">35–44 ans</span>
-                <span class="aud-bar-pct">14,6%</span>
-              </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="14.6"></div></div>
+            <div class="aud-hbar-row">
+              <span class="aud-hbar-label" data-i18n="aud-other">Autre</span>
+              <div class="aud-hbar-track"><div class="aud-hbar-fill" data-w="2.3" style="background:rgba(255,255,255,0.25)"></div></div>
+              <span class="aud-hbar-pct" style="color:var(--muted)">~2%</span>
             </div>
           </div>
         </div>
 
-        <!-- Age TikTok -->
-        <div class="aud-card reveal reveal-delay-3">
-          <div class="aud-card-title">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align:-3px;margin-right:6px;flex-shrink:0" aria-label="TikTok">
-              <path fill="#69C9D0" opacity="0.9" transform="translate(-0.5,0)" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
-              <path fill="#010101" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
-            </svg>Âge · TikTok
-          </div>
-          <div class="aud-card-sub">Tranches d'âge des abonnés</div>
-          <div class="aud-bars">
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">18–24 ans</span>
-                <span class="aud-bar-pct">34,3%</span>
+        <!-- Geography -->
+        <div class="aud-combined-card reveal reveal-delay-3">
+          <div class="aud-combined-title" data-i18n="aud-geo-title">Géographie · top marchés</div>
+          <div class="aud-combined-sub" data-i18n="aud-geo-sub">Présence internationale sur 2 plateformes</div>
+          <div class="aud-geo-items">
+            <div class="aud-geo-item">
+              <span class="aud-geo-flag">🇫🇷</span>
+              <div class="aud-geo-info">
+                <div class="aud-geo-country" data-i18n="aud-geo-france">France</div>
+                <div class="aud-geo-detail">74,8% TikTok · 25% Instagram</div>
               </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="34.3"></div></div>
+              <span class="aud-geo-badge" data-i18n="aud-rank1">1er</span>
             </div>
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">25–34 ans <span style="font-size:0.65rem;color:var(--tiktok-accent);">Core</span></span>
-                <span class="aud-bar-pct">38,3%</span>
+            <div class="aud-geo-item">
+              <span class="aud-geo-flag">🇺🇸</span>
+              <div class="aud-geo-info">
+                <div class="aud-geo-country" data-i18n="aud-geo-us">États-Unis</div>
+                <div class="aud-geo-detail">12% Instagram</div>
               </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="38.3"></div></div>
+              <span class="aud-geo-badge" data-i18n="aud-rank2">2e</span>
             </div>
-            <div class="aud-bar-row">
-              <div class="aud-bar-head">
-                <span class="aud-bar-label">35–44 ans</span>
-                <span class="aud-bar-pct">14,8%</span>
+            <div class="aud-geo-item">
+              <span class="aud-geo-flag">🇧🇷</span>
+              <div class="aud-geo-info">
+                <div class="aud-geo-country" data-i18n="aud-geo-br">Brésil</div>
+                <div class="aud-geo-detail">6% Instagram</div>
               </div>
-              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="14.8"></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gender card — full width -->
-        <div class="aud-card aud-card-wide reveal reveal-delay-4">
-          <div class="aud-card-title">Répartition genre · Instagram & TikTok</div>
-          <div class="aud-card-sub">Données combinées des deux plateformes</div>
-
-          <div class="gender-platforms-grid">
-            <!-- Instagram gender -->
-            <div>
-              <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">Instagram</div>
-              <div class="gender-row">
-                <div class="gender-item">
-                  <div class="donut-wrap">
-                    <svg viewBox="0 0 90 90">
-                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
-                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="#E1306C" data-pct="78" style="stroke-dashoffset:220"/>
-                    </svg>
-                    <div class="donut-label">
-                      <span class="donut-pct">78%</span>
-                      <span class="donut-name">Femmes</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="gender-item">
-                  <div class="donut-wrap">
-                    <svg viewBox="0 0 90 90">
-                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
-                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--gold)" data-pct="22" style="stroke-dashoffset:220"/>
-                    </svg>
-                    <div class="donut-label">
-                      <span class="donut-pct">22%</span>
-                      <span class="donut-name">Hommes</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TikTok gender -->
-            <div>
-              <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">TikTok</div>
-              <div class="gender-row">
-                <div class="gender-item">
-                  <div class="donut-wrap">
-                    <svg viewBox="0 0 90 90">
-                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
-                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--tiktok-accent)" data-pct="77" style="stroke-dashoffset:220"/>
-                    </svg>
-                    <div class="donut-label">
-                      <span class="donut-pct">77%</span>
-                      <span class="donut-name">Femmes</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="gender-item">
-                  <div class="donut-wrap">
-                    <svg viewBox="0 0 90 90">
-                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
-                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--gold)" data-pct="20" style="stroke-dashoffset:220"/>
-                    </svg>
-                    <div class="donut-label">
-                      <span class="donut-pct">20%</span>
-                      <span class="donut-name">Hommes</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <span class="aud-geo-badge" data-i18n="aud-rank3">3e</span>
             </div>
           </div>
         </div>
 
       </div>
+
     </div>
   </section>
 
@@ -2075,7 +2002,14 @@
         'strip3-label': 'Plateformes actives', 'strip4-label': 'Audience organique',
         'plat-label': 'Présence digitale', 'plat-title': 'Mes <em>plateformes</em>',
         'plat-followers-label': 'Abonnés',
-        'aud-label': 'Démographie', 'aud-title': 'Une audience <em>qualifiée</em> & engagée',
+        'aud-label': 'Démographie', 'aud-title': "Profil de l'<em>audience</em>",
+        'aud-insight1': 'Femmes · toutes plateformes', 'aud-insight2': 'Ont entre 18 et 34 ans',
+        'aud-insight3': 'Tranche core · IG & TT', 'aud-insight4': 'Top 3 marchés',
+        'aud-gender-title': 'Genre · combiné', 'aud-gender-sub': 'Données pondérées · 131 700 abonnés · IG & TT',
+        'aud-women': 'Femmes', 'aud-men': 'Hommes', 'aud-other': 'Autre',
+        'aud-geo-title': 'Géographie · top marchés', 'aud-geo-sub': 'Présence internationale sur 2 plateformes',
+        'aud-geo-france': 'France', 'aud-geo-us': 'États-Unis', 'aud-geo-br': 'Brésil',
+        'aud-rank1': '1er', 'aud-rank2': '2e', 'aud-rank3': '3e',
         'serv-label': 'Collaborations', 'serv-title': 'Ce que je <em>propose</em>',
         'serv1-title': 'Posts & Reels Sponsorisés',
         'serv1-desc': "Intégration naturelle et créative de votre marque dans mon univers visuel, avec un storytelling authentique qui résonne avec mon audience.",
@@ -2127,7 +2061,14 @@
         'strip3-label': 'Active platforms', 'strip4-label': 'Organic audience',
         'plat-label': 'Digital presence', 'plat-title': 'My <em>platforms</em>',
         'plat-followers-label': 'Followers',
-        'aud-label': 'Demographics', 'aud-title': 'A <em>qualified</em> & engaged audience',
+        'aud-label': 'Demographics', 'aud-title': "Audience <em>profile</em>",
+        'aud-insight1': 'Women · all platforms', 'aud-insight2': 'Aged between 18 and 34',
+        'aud-insight3': 'Core segment · IG & TT', 'aud-insight4': 'Top 3 markets',
+        'aud-gender-title': 'Gender · combined', 'aud-gender-sub': 'Weighted data · 131,700 followers · IG & TT',
+        'aud-women': 'Women', 'aud-men': 'Men', 'aud-other': 'Other',
+        'aud-geo-title': 'Geography · top markets', 'aud-geo-sub': 'International presence across 2 platforms',
+        'aud-geo-france': 'France', 'aud-geo-us': 'United States', 'aud-geo-br': 'Brazil',
+        'aud-rank1': '1st', 'aud-rank2': '2nd', 'aud-rank3': '3rd',
         'serv-label': 'Collaborations', 'serv-title': 'What I <em>offer</em>',
         'serv1-title': 'Sponsored Posts & Reels',
         'serv1-desc': "Natural and creative integration of your brand in my visual universe, with authentic storytelling that resonates with my audience.",
@@ -2205,13 +2146,13 @@
 
     // ── Animate bars when parent card enters view ──
     function animateBars(container) {
-      container.querySelectorAll('.mini-bar-fill, .aud-bar-fill').forEach(fill => {
+      container.querySelectorAll('.mini-bar-fill, .aud-bar-fill, .aud-hbar-fill').forEach(fill => {
         const target = parseFloat(fill.dataset.w) || 0;
         fill.style.width = target + '%';
       });
     }
 
-    const barContainers = document.querySelectorAll('.platform-card, .aud-card');
+    const barContainers = document.querySelectorAll('.platform-card, .aud-combined-card');
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
