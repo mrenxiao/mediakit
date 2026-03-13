@@ -812,6 +812,7 @@
       border-radius: var(--radius-lg);
       padding: 2.5rem;
       transition: all 0.35s ease;
+      overflow: hidden;
     }
 
     .aud-card:hover {
@@ -828,6 +829,15 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* Gender platforms grid */
+    .gender-platforms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 1rem;
     }
 
     .aud-card-sub {
@@ -1418,6 +1428,10 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-socials { flex-wrap: wrap; }
       .hero-actions { flex-direction: column; align-items: center; }
+      .aud-card { padding: 1.4rem; }
+      .aud-card-title { font-size: 1rem; }
+      .gender-platforms-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .donut-wrap, .donut-wrap svg { width: 80px; height: 80px; }
     }
   </style>
 </head>
@@ -1792,7 +1806,7 @@
           <div class="aud-card-title">Répartition genre · Instagram & TikTok</div>
           <div class="aud-card-sub">Données combinées des deux plateformes</div>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem;">
+          <div class="gender-platforms-grid">
             <!-- Instagram gender -->
             <div>
               <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">Instagram</div>
