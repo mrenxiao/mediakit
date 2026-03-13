@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calvin — Media Kit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── Reset & Base ─── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:   #070709;
+      --dark:    #0e0e12;
+      --card:    rgba(255,255,255,0.03);
+      --border:  rgba(201,166,107,0.18);
+      --gold:    #C9A66B;
+      --gold-lt: #E8C97A;
+      --gold-dk: #8B6914;
+      --white:   #F8F6F2;
+      --muted:   #8A8A95;
+      --insta:   #E1306C;
+      --tiktok:  #010101;
+      --tiktok-accent: #69C9D0;
+      --ff-head: 'Cormorant Garamond', Georgia, serif;
+      --ff-body: 'Inter', system-ui, sans-serif;
+      --radius:  16px;
+      --radius-lg: 24px;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold-dk); border-radius: 2px; }
+
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7,7,9,0.6);
+      border-bottom: 1px solid rgba(201,166,107,0.08);
+      transition: all 0.4s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.9rem 3rem;
+      background: rgba(7,7,9,0.92);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: 0.55rem 1.5rem;
+      border: 1px solid var(--gold);
+      border-radius: 40px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.35s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    /* Radial gradient glow */
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(201,166,107,0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    /* Floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: drift linear infinite;
+    }
+
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: rgba(201,166,107,0.08);
+      top: -10%; right: -5%;
+      animation-duration: 20s;
+    }
+
+    .orb-2 {
+      width: 300px; height: 300px;
+      background: rgba(225,48,108,0.05);
+      bottom: 10%; left: -5%;
+      animation-duration: 25s;
+      animation-direction: reverse;
+    }
+
+    .orb-3 {
+      width: 200px; height: 200px;
+      background: rgba(105,201,208,0.04);
+      top: 30%; right: 10%;
+      animation-duration: 18s;
+    }
+
+    @keyframes drift {
+      0%   { transform: translateY(0px) rotate(0deg); }
+      33%  { transform: translateY(-30px) rotate(120deg); }
+      66%  { transform: translateY(15px) rotate(240deg); }
+      100% { transform: translateY(0px) rotate(360deg); }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '—';
+      margin: 0 0.75rem;
+      color: var(--gold-dk);
+    }
+
+    .hero-name {
+      font-family: var(--ff-head);
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.4s;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      max-width: 420px;
+      margin: 0 auto 3rem;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.6s;
+    }
+
+    /* Hero numbers strip */
+    .hero-numbers {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      align-items: stretch;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.8s;
+    }
+
+    .hero-num {
+      padding: 1.5rem 3rem;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.3s ease;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-num:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+    .hero-num:last-child  { border-radius: 0 var(--radius) var(--radius) 0; }
+    .hero-num:not(:first-child) { border-left: none; }
+
+    .hero-num:hover {
+      background: rgba(201,166,107,0.06);
+      border-color: rgba(201,166,107,0.35);
+    }
+
+    .hero-num-val {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-num-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 1s;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      background: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.35s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(201,166,107,0.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.5rem;
+      border: 1px solid var(--border);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: 400;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.35s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1.5s;
+    }
+
+    .scroll-hint span {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: pulse-line 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-line {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1; transform: scaleY(1.1); }
+    }
+
+    /* ─── Section shared ─── */
+    section { padding: 7rem 2rem; }
+
+    .container { max-width: 1160px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0 auto;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── About Section ─── */
+    .about-section { background: var(--black); position: relative; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-img-frame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #1a1a20, #0e0e14);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-img-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,166,107,0.05), transparent 60%);
+    }
+
+    /* Placeholder silhouette */
+    .about-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: -1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .about-badge-num {
+      font-family: var(--ff-head);
+      font-size: 2.5rem;
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+    }
+
+    .about-badge-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about-text .section-label { margin-top: 0; }
+
+    .about-quote {
+      font-family: var(--ff-head);
+      font-size: 1.55rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .about-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+    }
+
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .tag {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      transition: all 0.3s;
+    }
+
+    .tag:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ─── Platforms Section ─── */
+    .platforms-section {
+      background: var(--dark);
+      position: relative;
+    }
+
+    .platforms-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 0%, rgba(201,166,107,0.04), transparent 60%);
+      pointer-events: none;
+    }
+
+    .platforms-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .platform-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .platform-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .platform-card.insta::before {
+      background: linear-gradient(90deg, #F58529, #E1306C, #833AB4);
+    }
+
+    .platform-card.tiktok::before {
+      background: linear-gradient(90deg, #69C9D0, #EE1D52, #010101);
+    }
+
+    .platform-card:hover {
+      border-color: rgba(201,166,107,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .platform-card:hover::before { opacity: 1; }
+
+    .platform-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .platform-info { display: flex; align-items: center; gap: 1rem; }
+
+    .platform-icon-wrap {
+      width: 50px; height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .insta .platform-icon-wrap  { background: linear-gradient(135deg, #F58529, #E1306C); }
+    .tiktok .platform-icon-wrap { background: #010101; border: 1px solid rgba(105,201,208,0.3); }
+
+    .platform-name {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .platform-handle {
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    .platform-main-stat {
+      text-align: right;
+    }
+
+    .platform-followers {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .platform-followers-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .platform-stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .p-stat {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .p-stat-val {
+      font-family: var(--ff-head);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+
+    .p-stat-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Mini bar chart */
+    .mini-bars { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .mini-bar-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 38px;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .mini-bar-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .mini-bar-track {
+      height: 5px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .mini-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--gold-dk), var(--gold));
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .mini-bar-pct {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--gold);
+      text-align: right;
+    }
+
+    .mini-bar-section-title {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    /* ─── Combined Stats Strip ─── */
+    .stats-strip {
+      background: var(--black);
+    }
+
+    .stats-strip-inner {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .strip-stat {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .strip-stat:last-child { border-right: none; }
+    .strip-stat:hover { background: rgba(201,166,107,0.04); }
+
+    .strip-stat::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 20%; right: 20%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .strip-stat:hover::after { transform: scaleX(1); }
+
+    .strip-val {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .strip-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Audience Section ─── */
+    .audience-section { background: var(--dark); }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .aud-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      transition: all 0.35s ease;
+    }
+
+    .aud-card:hover {
+      border-color: rgba(201,166,107,0.3);
+      transform: translateY(-3px);
+    }
+
+    .aud-card-title {
+      font-family: var(--ff-head);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .aud-card-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 1.8rem;
+    }
+
+    .aud-bars { display: flex; flex-direction: column; gap: 1rem; }
+
+    .aud-bar-row { display: flex; flex-direction: column; gap: 0.35rem; }
+
+    .aud-bar-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .aud-bar-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .aud-bar-pct {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .aud-bar-track {
+      height: 8px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .aud-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      width: 0%;
+      transition: width 1.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .fill-gold { background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt)); }
+    .fill-pink { background: linear-gradient(90deg, #9B2C5A, #E1306C); }
+    .fill-teal { background: linear-gradient(90deg, #1a8a90, #69C9D0); }
+
+    /* Gender donut */
+    .gender-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .gender-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .donut-wrap {
+      position: relative;
+      width: 90px;
+      height: 90px;
+    }
+
+    .donut-wrap svg {
+      transform: rotate(-90deg);
+      width: 90px;
+      height: 90px;
+    }
+
+    .donut-bg {
+      fill: none;
+      stroke: rgba(255,255,255,0.05);
+      stroke-width: 8;
+    }
+
+    .donut-arc {
+      fill: none;
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-dasharray: 220 220;
+      stroke-dashoffset: 220;
+      transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .donut-label {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .donut-pct {
+      font-family: var(--ff-head);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+    }
+
+    .donut-name {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+    }
+
+    .aud-card-wide {
+      grid-column: 1 / -1;
+    }
+
+    /* Flag emoji */
+    .flag { margin-right: 0.4rem; }
+
+    /* ─── Services Section ─── */
+    .services-section { background: var(--black); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold-dk), var(--gold));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+
+    .service-card:hover {
+      border-color: rgba(201,166,107,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-num {
+      font-family: var(--ff-head);
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(201,166,107,0.15);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ─── Brands ─── */
+    .brands-section {
+      background: var(--black);
+      padding-bottom: 0;
+    }
+
+    .brands-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 0.75rem;
+      max-width: 500px;
+    }
+
+    .brands-arena {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .brand-logo {
+      position: absolute;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(12px);
+      padding: 0 1.8rem;
+      height: 68px;
+      white-space: nowrap;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, transform 0.15s;
+      will-change: left, top;
+    }
+
+    .brand-logo:hover {
+      border-color: var(--gold);
+      background: rgba(201,166,107,0.07);
+      box-shadow: 0 0 30px rgba(201,166,107,0.15), 0 8px 32px rgba(0,0,0,0.4);
+      transform: scale(1.06);
+      z-index: 10;
+    }
+
+    .brand-logo img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.75;
+      transition: opacity 0.3s, filter 0.3s;
+      pointer-events: none;
+    }
+
+    .brand-logo:hover img {
+      opacity: 1;
+      filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(5deg);
+    }
+
+    .brand-logo .brand-fallback {
+      font-family: var(--ff-head);
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: rgba(248,246,242,0.6);
+      transition: color 0.3s;
+      pointer-events: none;
+    }
+
+    .brand-logo:hover .brand-fallback {
+      color: var(--gold);
+    }
+
+    /* ─── Why Calvin ─── */
+    .why-section { background: var(--dark); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .why-item {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .why-title {
+      font-family: var(--ff-head);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+
+    .why-text {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ─── Contact Section ─── */
+    .contact-section {
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,166,107,0.06), transparent 70%);
+      bottom: -200px; right: -100px;
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner .section-label { justify-content: center; }
+    .contact-inner .section-label::before { display: none; }
+
+    .contact-title {
+      font-family: var(--ff-head);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .contact-title em { font-style: italic; color: var(--gold); }
+
+    .contact-body {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .contact-email {
+      font-family: var(--ff-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid rgba(201,166,107,0.3);
+      transition: all 0.3s;
+    }
+
+    .contact-email:hover {
+      color: var(--gold-lt);
+      border-color: var(--gold-lt);
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: all 0.3s;
+      letter-spacing: 0.04em;
+    }
+
+    .social-pill:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    footer p {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ─── Lang Toggle & Nav Right ─── */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid rgba(201,166,107,0.35);
+      border-radius: 40px;
+      padding: 0.42rem 0.95rem;
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      line-height: 1;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(201,166,107,0.08);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .lang-toggle svg { opacity: 0.75; flex-shrink: 0; }
+
+    /* ─── Trust section (brands + events shared) ─── */
+    .trust-sub-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4.5rem;
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .trust-sub-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── Events grid ─── */
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    .event-card {
+      position: relative;
+      padding: 1.8rem 1.5rem 1.8rem 1.9rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      transition: transform 0.35s ease, border-color 0.35s, box-shadow 0.35s, background 0.35s;
+      overflow: hidden;
+    }
+
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--gold), rgba(201,166,107,0.1));
+      border-radius: 3px 0 0 3px;
+      opacity: 0.6;
+      transition: opacity 0.35s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(201,166,107,0.45);
+      background: rgba(201,166,107,0.03);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.45), 0 0 40px rgba(201,166,107,0.05);
+    }
+
+    .event-card:hover::before { opacity: 1; }
+
+    .event-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: rgba(201,166,107,0.35);
+      margin-bottom: 1rem;
+    }
+
+    .event-cat {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.65;
+      margin-bottom: 0.6rem;
+      transition: opacity 0.3s;
+    }
+
+    .event-card:hover .event-cat { opacity: 0.9; }
+
+    .event-name {
+      font-family: var(--ff-head);
+      font-size: 1.65rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .event-card:hover .event-name { color: var(--gold-lt); }
+
+    .event-desc {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .events-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .events-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Keyframes ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero-numbers { flex-wrap: wrap; }
+      .hero-num { flex: 1 1 calc(50% - 1rem); border-radius: var(--radius); border: 1px solid var(--border) !important; margin: 0.2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-badge { right: 1rem; }
+      .platforms-grid { grid-template-columns: 1fr; }
+      .stats-strip-inner { grid-template-columns: 1fr 1fr; }
+      .strip-stat:nth-child(2) { border-right: none; }
+      .strip-stat:nth-child(3) { border-top: 1px solid var(--border); }
+      .audience-grid { grid-template-columns: 1fr; }
+      .aud-card-wide { grid-column: 1; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 5rem 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .contact-socials { flex-wrap: wrap; }
+      .hero-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ─── -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Calvin</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav-about">À propos</a></li>
+      <li><a href="#platforms" data-i18n="nav-platforms">Plateformes</a></li>
+      <li><a href="#audience" data-i18n="nav-audience">Audience</a></li>
+      <li><a href="#services" data-i18n="nav-services">Services</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span id="langLabel">EN</span>
+      </button>
+      <a href="#contact" class="nav-cta" data-i18n="nav-cta">Collaborer</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <p class="hero-eyebrow" data-i18n="hero-eyebrow">Media Kit · 2026</p>
+
+    <h1 class="hero-name"><em>Calvin</em></h1>
+
+    <p class="hero-subtitle" data-i18n-html="hero-subtitle">Créateur de contenu · Danse & Lifestyle<br>Inspirez-vous. Bougez. Vivez.</p>
+
+    <div class="hero-numbers">
+      <div class="hero-num">
+        <div class="hero-num-val">131,7K</div>
+        <div class="hero-num-label" data-i18n="hero-stat1-label">Abonnés cumulés</div>
+      </div>
+      <div class="hero-num">
+        <div class="hero-num-val">1,3M+</div>
+        <div class="hero-num-label" data-i18n="hero-stat2-label">Reach mensuel</div>
+      </div>
+      <div class="hero-num">
+        <div class="hero-num-val">78%</div>
+        <div class="hero-num-label" data-i18n="hero-stat3-label">Audience féminine</div>
+      </div>
+      <div class="hero-num">
+        <div class="hero-num-val">41%</div>
+        <div class="hero-num-label" data-i18n="hero-stat4-label">Core 25–34 ans</div>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary" data-i18n="hero-cta1">Lancer un projet ↗</a>
+      <a href="#platforms" class="btn-ghost" data-i18n="hero-cta2">Voir les stats</a>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span data-i18n="hero-scroll">Scroll</span>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── About ─── -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="about-img-frame">
+            <img src="images/profile.jpg" alt="Calvin en danse" class="about-image">
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-num">3</span>
+            <span class="about-badge-label" data-i18n="about-badge-label">Ans de danse</span>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p class="section-label reveal reveal-delay-1" data-i18n="about-label">Mon histoire</p>
+          <h2 class="section-title reveal reveal-delay-2" data-i18n-html="about-title">Commencer tard.<br><em>Aller loin.</em></h2>
+
+          <blockquote class="about-quote reveal reveal-delay-3" data-i18n="about-quote">
+            "3 ans de danse après avoir commencé tard. Je partage mon parcours pour inspirer. Et parfois du lifestyle."
+          </blockquote>
+
+          <p class="about-body reveal reveal-delay-4" data-i18n="about-body1">
+            Je suis Calvin — danseur, créateur de contenu et preuve vivante qu'il n'est jamais trop tard pour commencer. En seulement 3 ans, j'ai bâti une communauté engagée sur Instagram et TikTok en partageant chaque étape de ma progression, mes doutes, mes victoires et les moments de vie qui m'animent.
+          </p>
+
+          <p class="about-body reveal reveal-delay-5" data-i18n="about-body2">
+            Mon contenu mêle authenticité et esthétisme : des vidéos de danse soignées, des réflexions sur le parcours initiatique, et des instants lifestyle qui reflètent ma vision de la beauté du quotidien.
+          </p>
+
+          <div class="about-tags reveal reveal-delay-5">
+            <span class="tag">Danse</span>
+            <span class="tag">Lifestyle</span>
+            <span class="tag">Inspiration</span>
+            <span class="tag">Authenticité</span>
+            <span class="tag">Mode</span>
+            <span class="tag">Bien-être</span>
+            <span class="tag">Voyage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Combined Stats Strip ─── -->
+  <section class="stats-strip" id="stats">
+    <div class="container">
+      <div class="stats-strip-inner reveal">
+        <div class="strip-stat">
+          <div class="strip-val counter" data-target="131700" data-suffix="K" data-divide="1000">131,7K</div>
+          <div class="strip-label" data-i18n="strip1-label">Abonnés · toutes plateformes</div>
+        </div>
+        <div class="strip-stat">
+          <div class="strip-val">1,3M+</div>
+          <div class="strip-label" data-i18n="strip2-label">Reach mensuel combiné</div>
+        </div>
+        <div class="strip-stat">
+          <div class="strip-val">2</div>
+          <div class="strip-label" data-i18n="strip3-label">Plateformes actives</div>
+        </div>
+        <div class="strip-stat">
+          <div class="strip-val">100%</div>
+          <div class="strip-label" data-i18n="strip4-label">Audience organique</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Platforms ─── -->
+  <section class="platforms-section" id="platforms">
+    <div class="container">
+      <div class="platforms-header">
+        <div>
+          <p class="section-label reveal" data-i18n="plat-label">Présence digitale</p>
+          <h2 class="section-title reveal reveal-delay-1" data-i18n-html="plat-title">Mes <em>plateformes</em></h2>
+        </div>
+      </div>
+
+      <div class="platforms-grid">
+
+        <!-- Instagram -->
+        <div class="platform-card insta reveal reveal-delay-2">
+          <div class="platform-head">
+            <div class="platform-info">
+              <div class="platform-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="white" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              </div>
+              <div>
+                <div class="platform-name">Instagram</div>
+                <div class="platform-handle">@calvinmo</div>
+              </div>
+            </div>
+            <div class="platform-main-stat">
+              <div class="platform-followers">32,4K</div>
+              <div class="platform-followers-label" data-i18n="plat-followers-label">Abonnés</div>
+            </div>
+          </div>
+
+          <div class="platform-stats-grid">
+            <div class="p-stat">
+              <div class="p-stat-val">800K</div>
+              <div class="p-stat-label">Vues / mois</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-val">78%</div>
+              <div class="p-stat-label">Femmes</div>
+            </div>
+          </div>
+
+          <div class="mini-bar-section-title">Âge de l'audience</div>
+          <div class="mini-bars">
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">18–24 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="27.3"></div></div>
+              <span class="mini-bar-pct">27,3%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">25–34 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="41"></div></div>
+              <span class="mini-bar-pct">41%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">35–44 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="14.6"></div></div>
+              <span class="mini-bar-pct">14,6%</span>
+            </div>
+          </div>
+
+          <div class="mini-bar-section-title" style="margin-top:1.2rem;">Top pays</div>
+          <div class="mini-bars">
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">🇫🇷 France</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="25"></div></div>
+              <span class="mini-bar-pct">25%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">🇺🇸 États-Unis</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="12"></div></div>
+              <span class="mini-bar-pct">12%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">🇧🇷 Brésil</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="6"></div></div>
+              <span class="mini-bar-pct">6%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TikTok -->
+        <div class="platform-card tiktok reveal reveal-delay-3">
+          <div class="platform-head">
+            <div class="platform-info">
+              <div class="platform-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" aria-label="TikTok">
+                  <path fill="#69C9D0" opacity="0.85" transform="translate(-0.6,0)" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+                  <path fill="white" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="platform-name">TikTok</div>
+                <div class="platform-handle">@calvinmo</div>
+              </div>
+            </div>
+            <div class="platform-main-stat">
+              <div class="platform-followers" style="color: var(--tiktok-accent);">99,3K</div>
+              <div class="platform-followers-label" data-i18n="plat-followers-label">Abonnés</div>
+            </div>
+          </div>
+
+          <div class="platform-stats-grid">
+            <div class="p-stat">
+              <div class="p-stat-val">500K</div>
+              <div class="p-stat-label">Vues / mois</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-val">77%</div>
+              <div class="p-stat-label">Femmes</div>
+            </div>
+          </div>
+
+          <div class="mini-bar-section-title">Âge de l'audience</div>
+          <div class="mini-bars">
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">18–24 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="34.3" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">34,3%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">25–34 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="38.3" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">38,3%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">35–44 ans</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="14.8" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">14,8%</span>
+            </div>
+          </div>
+
+          <div class="mini-bar-section-title" style="margin-top:1.2rem;">Audience principale</div>
+          <div class="mini-bars">
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">🇫🇷 France</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="74.8" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">74,8%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">👩 Femmes</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="77" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">77%</span>
+            </div>
+            <div class="mini-bar-row">
+              <span class="mini-bar-label">👨 Hommes</span>
+              <div class="mini-bar-track"><div class="mini-bar-fill" data-w="20" style="background: linear-gradient(90deg,#1a8a90,var(--tiktok-accent))"></div></div>
+              <span class="mini-bar-pct" style="color:var(--tiktok-accent)">20%</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Audience ─── -->
+  <section class="audience-section" id="audience">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="aud-label">Démographie</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="aud-title">Une audience <em>qualifiée</em> & engagée</h2>
+
+      <div class="audience-grid" style="margin-top:3.5rem;">
+
+        <!-- Age Instagram -->
+        <div class="aud-card reveal reveal-delay-2">
+          <div class="aud-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align:-3px;margin-right:6px;flex-shrink:0" aria-label="Instagram"><defs><linearGradient id="ig-title-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><path fill="url(#ig-title-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Âge · Instagram
+          </div>
+          <div class="aud-card-sub">Tranches d'âge des abonnés</div>
+          <div class="aud-bars">
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">18–24 ans</span>
+                <span class="aud-bar-pct">27,3%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="27.3"></div></div>
+            </div>
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">25–34 ans <span style="font-size:0.65rem;color:var(--gold);">Core</span></span>
+                <span class="aud-bar-pct">41%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="41"></div></div>
+            </div>
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">35–44 ans</span>
+                <span class="aud-bar-pct">14,6%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-gold" data-w="14.6"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Age TikTok -->
+        <div class="aud-card reveal reveal-delay-3">
+          <div class="aud-card-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" style="vertical-align:-3px;margin-right:6px;flex-shrink:0" aria-label="TikTok">
+              <path fill="#69C9D0" opacity="0.9" transform="translate(-0.5,0)" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+              <path fill="#010101" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+            </svg>Âge · TikTok
+          </div>
+          <div class="aud-card-sub">Tranches d'âge des abonnés</div>
+          <div class="aud-bars">
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">18–24 ans</span>
+                <span class="aud-bar-pct">34,3%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="34.3"></div></div>
+            </div>
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">25–34 ans <span style="font-size:0.65rem;color:var(--tiktok-accent);">Core</span></span>
+                <span class="aud-bar-pct">38,3%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="38.3"></div></div>
+            </div>
+            <div class="aud-bar-row">
+              <div class="aud-bar-head">
+                <span class="aud-bar-label">35–44 ans</span>
+                <span class="aud-bar-pct">14,8%</span>
+              </div>
+              <div class="aud-bar-track"><div class="aud-bar-fill fill-teal" data-w="14.8"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gender card — full width -->
+        <div class="aud-card aud-card-wide reveal reveal-delay-4">
+          <div class="aud-card-title">Répartition genre · Instagram & TikTok</div>
+          <div class="aud-card-sub">Données combinées des deux plateformes</div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1rem;">
+            <!-- Instagram gender -->
+            <div>
+              <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">Instagram</div>
+              <div class="gender-row">
+                <div class="gender-item">
+                  <div class="donut-wrap">
+                    <svg viewBox="0 0 90 90">
+                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
+                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="#E1306C" data-pct="78" style="stroke-dashoffset:220"/>
+                    </svg>
+                    <div class="donut-label">
+                      <span class="donut-pct">78%</span>
+                      <span class="donut-name">Femmes</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="gender-item">
+                  <div class="donut-wrap">
+                    <svg viewBox="0 0 90 90">
+                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
+                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--gold)" data-pct="22" style="stroke-dashoffset:220"/>
+                    </svg>
+                    <div class="donut-label">
+                      <span class="donut-pct">22%</span>
+                      <span class="donut-name">Hommes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- TikTok gender -->
+            <div>
+              <div style="font-size:0.7rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.2rem;">TikTok</div>
+              <div class="gender-row">
+                <div class="gender-item">
+                  <div class="donut-wrap">
+                    <svg viewBox="0 0 90 90">
+                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
+                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--tiktok-accent)" data-pct="77" style="stroke-dashoffset:220"/>
+                    </svg>
+                    <div class="donut-label">
+                      <span class="donut-pct">77%</span>
+                      <span class="donut-name">Femmes</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="gender-item">
+                  <div class="donut-wrap">
+                    <svg viewBox="0 0 90 90">
+                      <circle class="donut-bg" cx="45" cy="45" r="35"/>
+                      <circle class="donut-arc" cx="45" cy="45" r="35" stroke="var(--gold)" data-pct="20" style="stroke-dashoffset:220"/>
+                    </svg>
+                    <div class="donut-label">
+                      <span class="donut-pct">20%</span>
+                      <span class="donut-name">Hommes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Services ─── -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="serv-label">Collaborations</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="serv-title">Ce que je <em>propose</em></h2>
+
+      <div class="services-grid">
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">01</div>
+          <div class="service-title" data-i18n="serv1-title">Posts & Reels Sponsorisés</div>
+          <p class="service-desc" data-i18n="serv1-desc">Intégration naturelle et créative de votre marque dans mon univers visuel, avec un storytelling authentique qui résonne avec mon audience.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">02</div>
+          <div class="service-title" data-i18n="serv2-title">Vidéos TikTok Dédiées</div>
+          <p class="service-desc" data-i18n="serv2-desc">Création de contenus natifs TikTok exploitant les trends actuels pour maximiser votre portée auprès d'une audience jeune et engagée.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">03</div>
+          <div class="service-title" data-i18n="serv3-title">Stories</div>
+          <p class="service-desc" data-i18n="serv3-desc">Séries de stories immersives et authentiques avec call-to-action direct pour générer du trafic qualifié vers vos canaux de conversion.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">04</div>
+          <div class="service-title" data-i18n="serv4-title">Placement Produit</div>
+          <p class="service-desc" data-i18n="serv4-desc">Mise en scène soignée de vos produits dans des contextes danse et lifestyle, pour une intégration esthétique et désirable.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">05</div>
+          <div class="service-title" data-i18n="serv5-title">Ambassadeur Long Terme</div>
+          <p class="service-desc" data-i18n="serv5-desc">Partenariats durables pour incarner votre marque avec continuité et cohérence, construisant une association mémorable dans l'esprit de mon audience.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">06</div>
+          <div class="service-title" data-i18n="serv6-title">Création de Contenu UGC</div>
+          <p class="service-desc" data-i18n="serv6-desc">Production de visuels et vidéos haute qualité que vous pouvez utiliser dans vos propres canaux publicitaires et réseaux sociaux.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Brands + Events ─── -->
+  <section class="brands-section" id="brands">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="trust-label">Ils m'ont fait confiance</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="trust-title">Partenaires & <em>Présences</em></h2>
+
+      <p class="trust-sub-label reveal reveal-delay-2" data-i18n="trust-brands-sub">Collaborations de marques</p>
+      <p class="brands-sub reveal reveal-delay-3" data-i18n="trust-brands-desc">Des partenariats sélectionnés avec soin, alignés avec mes valeurs et mon univers.</p>
+    </div>
+
+    <div class="brands-arena" id="brandsArena">
+      <!-- logos injected by JS -->
+    </div>
+
+    <div class="container">
+      <p class="trust-sub-label reveal" data-i18n="trust-events-sub">Présences & Événements</p>
+
+      <div class="events-grid">
+        <div class="event-card reveal reveal-delay-1">
+          <div class="event-num">01</div>
+          <div class="event-cat" data-i18n="ev1-cat">Automobile</div>
+          <div class="event-name">BYD</div>
+          <p class="event-desc" data-i18n="ev1-desc">Lancement de gamme & activation influenceurs sur le marché européen.</p>
+        </div>
+
+        <div class="event-card reveal reveal-delay-2">
+          <div class="event-num">02</div>
+          <div class="event-cat" data-i18n="ev2-cat">Sport & Divertissement</div>
+          <div class="event-name">GP Explorer</div>
+          <p class="event-desc" data-i18n="ev2-desc">Présence live & contenus exclusifs dans les coulisses de l'événement.</p>
+        </div>
+
+        <div class="event-card reveal reveal-delay-3">
+          <div class="event-num">03</div>
+          <div class="event-cat" data-i18n="ev3-cat">Beauté & Cosmétique</div>
+          <div class="event-name">Erborian</div>
+          <p class="event-desc" data-i18n="ev3-desc">Activation influenceur & storytelling produit lors de la soirée de lancement.</p>
+        </div>
+
+        <div class="event-card reveal reveal-delay-1">
+          <div class="event-num">04</div>
+          <div class="event-cat" data-i18n="ev4-cat">Sport Automobile</div>
+          <div class="event-name">24h du Mans</div>
+          <p class="event-desc" data-i18n="ev4-desc">Couverture immersive & storytelling live lors de l'événement iconique.</p>
+        </div>
+
+        <div class="event-card reveal reveal-delay-2">
+          <div class="event-num">05</div>
+          <div class="event-cat" data-i18n="ev5-cat">Art de vivre</div>
+          <div class="event-name">Nescafé</div>
+          <p class="event-desc" data-i18n="ev5-desc">Campagne lifestyle & contenus sponsorisés autour du rituel quotidien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Why Calvin ─── -->
+  <section class="why-section">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="why-label">Pourquoi moi ?</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="why-title">Ce qui me <em>différencie</em></h2>
+
+      <div class="why-grid">
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-icon">✦</div>
+          <div class="why-title" data-i18n="why1-title">Authenticité avant tout</div>
+          <p class="why-text" data-i18n="why1-text">Mon parcours réel — commencer la danse sans formation — crée une connexion profonde avec une audience qui se reconnaît dans la progression et le dépassement de soi.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-3">
+          <div class="why-icon">✦</div>
+          <div class="why-title" data-i18n="why2-title">Audience bi-plateforme</div>
+          <p class="why-text" data-i18n="why2-text">Présence forte sur Instagram (32,4K) et TikTok (99,3K) avec des profils démographiques complémentaires, permettant une stratégie de contenu multi-touch cohérente.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-4">
+          <div class="why-icon">✦</div>
+          <div class="why-title" data-i18n="why3-title">Reach international</div>
+          <p class="why-text" data-i18n="why3-text">Audience principalement francophone mais avec une présence significative aux États-Unis et au Brésil, idéale pour des marques à ambition internationale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── Contact ─── -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <p class="section-label reveal" data-i18n="contact-label">Contact</p>
+        <h2 class="contact-title reveal reveal-delay-1" data-i18n-html="contact-title">Construisons<br>quelque chose <em>ensemble.</em></h2>
+        <p class="contact-body reveal reveal-delay-2" data-i18n="contact-body">
+          Vous avez un projet, une campagne, une idée ? Je suis disponible pour discuter de collaborations qui ont du sens — pour vous et pour mon audience.
+        </p>
+
+        <div class="reveal reveal-delay-3">
+          <a href="mailto:hi@clvn.fr" class="contact-email">✉ hi@clvn.fr</a>
+        </div>
+
+        <div class="contact-actions reveal reveal-delay-4">
+          <a href="mailto:hi@clvn.fr?subject=Collaboration%20-%20Media%20Kit" class="btn-primary" data-i18n="contact-cta1">Envoyer un message ↗</a>
+          <a href="#platforms" class="btn-ghost" data-i18n="contact-cta2">Voir les stats</a>
+        </div>
+
+        <div class="contact-socials reveal reveal-delay-5">
+          <a href="#" class="social-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" style="flex-shrink:0" aria-label="Instagram"><defs><linearGradient id="ig-pill-grad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#E1306C"/><stop offset="100%" stop-color="#833AB4"/></linearGradient></defs><path fill="url(#ig-pill-grad)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram · 32,4K
+          </a>
+          <a href="#" class="social-pill">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" style="flex-shrink:0" aria-label="TikTok">
+              <path fill="#69C9D0" opacity="0.9" transform="translate(-0.5,0)" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+              <path fill="white" d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+            </svg>
+            TikTok · 99,3K
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <p id="footerText" data-i18n-html="footer-text">© 2026 <span>Calvin</span> · Media Kit · Tous droits réservés</p>
+  </footer>
+
+  <!-- ─── Scripts ─── -->
+  <script>
+    // ════════════════════════════════════════════
+    // i18n — Translations
+    // ════════════════════════════════════════════
+    const i18n = {
+      fr: {
+        'nav-about': 'À propos', 'nav-platforms': 'Plateformes', 'nav-audience': 'Audience',
+        'nav-services': 'Services', 'nav-cta': 'Collaborer',
+        'hero-eyebrow': 'Media Kit · 2026',
+        'hero-subtitle': 'Créateur de contenu · Danse & Lifestyle<br>Inspirez-vous. Bougez. Vivez.',
+        'hero-stat1-label': 'Abonnés cumulés', 'hero-stat2-label': 'Reach mensuel',
+        'hero-stat3-label': 'Audience féminine', 'hero-stat4-label': 'Core 25–34 ans',
+        'hero-cta1': 'Lancer un projet ↗', 'hero-cta2': 'Voir les stats', 'hero-scroll': 'Scroll',
+        'about-label': 'Mon histoire', 'about-title': 'Commencer tard.<br><em>Aller loin.</em>',
+        'about-badge-label': 'Ans de danse',
+        'about-quote': '"3 ans de danse après avoir commencé tard. Je partage mon parcours pour inspirer. Et parfois du lifestyle."',
+        'about-body1': "Je suis Calvin — danseur, créateur de contenu et preuve vivante qu'il n'est jamais trop tard pour commencer. En seulement 3 ans, j'ai bâti une communauté engagée sur Instagram et TikTok en partageant chaque étape de ma progression, mes doutes, mes victoires et les moments de vie qui m'animent.",
+        'about-body2': "Mon contenu mêle authenticité et esthétisme : des vidéos de danse soignées, des réflexions sur le parcours initiatique, et des instants lifestyle qui reflètent ma vision de la beauté du quotidien.",
+        'strip1-label': 'Abonnés · toutes plateformes', 'strip2-label': 'Reach mensuel combiné',
+        'strip3-label': 'Plateformes actives', 'strip4-label': 'Audience organique',
+        'plat-label': 'Présence digitale', 'plat-title': 'Mes <em>plateformes</em>',
+        'plat-followers-label': 'Abonnés',
+        'aud-label': 'Démographie', 'aud-title': 'Une audience <em>qualifiée</em> & engagée',
+        'serv-label': 'Collaborations', 'serv-title': 'Ce que je <em>propose</em>',
+        'serv1-title': 'Posts & Reels Sponsorisés',
+        'serv1-desc': "Intégration naturelle et créative de votre marque dans mon univers visuel, avec un storytelling authentique qui résonne avec mon audience.",
+        'serv2-title': 'Vidéos TikTok Dédiées',
+        'serv2-desc': "Création de contenus natifs TikTok exploitant les trends actuels pour maximiser votre portée auprès d'une audience jeune et engagée.",
+        'serv3-title': 'Stories',
+        'serv3-desc': "Séries de stories immersives et authentiques avec call-to-action direct pour générer du trafic qualifié vers vos canaux de conversion.",
+        'serv4-title': 'Placement Produit',
+        'serv4-desc': "Mise en scène soignée de vos produits dans des contextes danse et lifestyle, pour une intégration esthétique et désirable.",
+        'serv5-title': 'Ambassadeur Long Terme',
+        'serv5-desc': "Partenariats durables pour incarner votre marque avec continuité et cohérence, construisant une association mémorable dans l'esprit de mon audience.",
+        'serv6-title': 'Création de Contenu UGC',
+        'serv6-desc': "Production de visuels et vidéos haute qualité que vous pouvez utiliser dans vos propres canaux publicitaires et réseaux sociaux.",
+        'trust-label': "Ils m'ont fait confiance", 'trust-title': 'Partenaires & <em>Présences</em>',
+        'trust-brands-sub': 'Collaborations de marques',
+        'trust-brands-desc': "Des partenariats sélectionnés avec soin, alignés avec mes valeurs et mon univers.",
+        'trust-events-sub': 'Présences & Événements',
+        'ev1-cat': 'Automobile', 'ev1-desc': "Lancement de gamme & activation influenceurs sur le marché européen.",
+        'ev2-cat': 'Sport & Divertissement', 'ev2-desc': "Présence live & contenus exclusifs dans les coulisses de l'événement.",
+        'ev3-cat': 'Beauté & Cosmétique', 'ev3-desc': "Activation influenceur & storytelling produit lors de la soirée de lancement.",
+        'ev4-cat': 'Sport Automobile', 'ev4-desc': "Couverture immersive & storytelling live lors de l'événement iconique.",
+        'ev5-cat': 'Art de vivre', 'ev5-desc': "Campagne lifestyle & contenus sponsorisés autour du rituel quotidien.",
+        'why-label': 'Pourquoi moi ?', 'why-title': 'Ce qui me <em>différencie</em>',
+        'why1-title': 'Authenticité avant tout',
+        'why1-text': "Mon parcours réel — commencer la danse sans formation — crée une connexion profonde avec une audience qui se reconnaît dans la progression et le dépassement de soi.",
+        'why2-title': 'Audience bi-plateforme',
+        'why2-text': "Présence forte sur Instagram (32,4K) et TikTok (99,3K) avec des profils démographiques complémentaires, permettant une stratégie de contenu multi-touch cohérente.",
+        'why3-title': 'Reach international',
+        'why3-text': "Audience principalement francophone mais avec une présence significative aux États-Unis et au Brésil, idéale pour des marques à ambition internationale.",
+        'contact-label': 'Contact', 'contact-title': 'Construisons<br>quelque chose <em>ensemble.</em>',
+        'contact-body': "Vous avez un projet, une campagne, une idée ? Je suis disponible pour discuter de collaborations qui ont du sens — pour vous et pour mon audience.",
+        'contact-cta1': 'Envoyer un message ↗', 'contact-cta2': 'Voir les stats',
+        'footer-text': '© 2026 <span>Calvin</span> · Media Kit · Tous droits réservés',
+      },
+      en: {
+        'nav-about': 'About', 'nav-platforms': 'Platforms', 'nav-audience': 'Audience',
+        'nav-services': 'Services', 'nav-cta': 'Work Together',
+        'hero-eyebrow': 'Media Kit · 2026',
+        'hero-subtitle': 'Content Creator · Dance & Lifestyle<br>Get inspired. Move. Live.',
+        'hero-stat1-label': 'Total Followers', 'hero-stat2-label': 'Monthly Reach',
+        'hero-stat3-label': 'Female Audience', 'hero-stat4-label': 'Core 25–34 yrs',
+        'hero-cta1': 'Start a project ↗', 'hero-cta2': 'View stats', 'hero-scroll': 'Scroll',
+        'about-label': 'My story', 'about-title': 'Starting late.<br><em>Going far.</em>',
+        'about-badge-label': 'Years of dance',
+        'about-quote': '"3 years of dance after starting late. I share my journey to inspire. And sometimes lifestyle."',
+        'about-body1': "I'm Calvin — dancer, content creator and living proof that it's never too late to start. In just 3 years, I've built an engaged community on Instagram and TikTok by sharing every step of my journey, my doubts, my victories and the life moments that drive me.",
+        'about-body2': "My content blends authenticity and aesthetics: polished dance videos, reflections on the initiatory journey, and lifestyle moments that reflect my vision of everyday beauty.",
+        'strip1-label': 'Followers · all platforms', 'strip2-label': 'Combined monthly reach',
+        'strip3-label': 'Active platforms', 'strip4-label': 'Organic audience',
+        'plat-label': 'Digital presence', 'plat-title': 'My <em>platforms</em>',
+        'plat-followers-label': 'Followers',
+        'aud-label': 'Demographics', 'aud-title': 'A <em>qualified</em> & engaged audience',
+        'serv-label': 'Collaborations', 'serv-title': 'What I <em>offer</em>',
+        'serv1-title': 'Sponsored Posts & Reels',
+        'serv1-desc': "Natural and creative integration of your brand in my visual universe, with authentic storytelling that resonates with my audience.",
+        'serv2-title': 'Dedicated TikTok Videos',
+        'serv2-desc': "Native TikTok content leveraging current trends to maximize your reach with a young, engaged audience.",
+        'serv3-title': 'Stories',
+        'serv3-desc': "Immersive and authentic story series with direct call-to-action to drive qualified traffic to your conversion channels.",
+        'serv4-title': 'Product Placement',
+        'serv4-desc': "Careful staging of your products in dance and lifestyle contexts, for an aesthetic and desirable integration.",
+        'serv5-title': 'Long-Term Ambassador',
+        'serv5-desc': "Lasting partnerships to embody your brand with continuity and consistency, building a memorable association in my audience's mind.",
+        'serv6-title': 'UGC Content Creation',
+        'serv6-desc': "Production of high-quality visuals and videos that you can use in your own advertising channels and social networks.",
+        'trust-label': 'They trusted me', 'trust-title': 'Partners & <em>Events</em>',
+        'trust-brands-sub': 'Brand Collaborations',
+        'trust-brands-desc': "Carefully selected partnerships, aligned with my values and universe.",
+        'trust-events-sub': 'Events & Appearances',
+        'ev1-cat': 'Automotive', 'ev1-desc': "Product range launch & influencer activation on the European market.",
+        'ev2-cat': 'Sport & Entertainment', 'ev2-desc': "Live presence & exclusive behind-the-scenes content at the event.",
+        'ev3-cat': 'Beauty & Cosmetics', 'ev3-desc': "Influencer activation & product storytelling at the launch evening.",
+        'ev4-cat': 'Motorsport', 'ev4-desc': "Immersive coverage & live storytelling at the iconic event.",
+        'ev5-cat': 'Lifestyle', 'ev5-desc': "Lifestyle campaign & sponsored content around the everyday ritual.",
+        'why-label': 'Why me?', 'why-title': 'What sets me <em>apart</em>',
+        'why1-title': 'Authenticity first',
+        'why1-text': "My real journey — starting dance without training — creates a deep connection with an audience that recognises itself in growth and self-improvement.",
+        'why2-title': 'Dual-platform audience',
+        'why2-text': "Strong presence on Instagram (32.4K) and TikTok (99.3K) with complementary demographic profiles, enabling a coherent multi-touch content strategy.",
+        'why3-title': 'International reach',
+        'why3-text': "Primarily French-speaking audience with significant presence in the United States and Brazil, ideal for brands with international ambitions.",
+        'contact-label': 'Contact', 'contact-title': "Let's build<br>something <em>together.</em>",
+        'contact-body': "Have a project, a campaign, an idea? I'm available to discuss collaborations that make sense — for you and for my audience.",
+        'contact-cta1': 'Send a message ↗', 'contact-cta2': 'View stats',
+        'footer-text': '© 2026 <span>Calvin</span> · Media Kit · All rights reserved',
+      }
+    };
+
+    let currentLang = 'fr';
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = i18n[lang][el.getAttribute('data-i18n')];
+        if (v !== undefined) el.textContent = v;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = i18n[lang][el.getAttribute('data-i18n-html')];
+        if (v !== undefined) el.innerHTML = v;
+      });
+      document.getElementById('langLabel').textContent = lang === 'fr' ? 'EN' : 'FR';
+    }
+
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      applyLang(currentLang);
+    });
+
+    // ── Nav scroll effect ──
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ── Reveal on scroll ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // ── Animate bars when parent card enters view ──
+    function animateBars(container) {
+      container.querySelectorAll('.mini-bar-fill, .aud-bar-fill').forEach(fill => {
+        const target = parseFloat(fill.dataset.w) || 0;
+        fill.style.width = target + '%';
+      });
+    }
+
+    const barContainers = document.querySelectorAll('.platform-card, .aud-card');
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => animateBars(entry.target), 200);
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    barContainers.forEach(c => barObserver.observe(c));
+
+    // ── Animate donut charts ──
+    const circumference = 2 * Math.PI * 35; // r=35
+
+    function animateDonuts(container) {
+      container.querySelectorAll('.donut-arc').forEach(arc => {
+        const pct = parseFloat(arc.dataset.pct) || 0;
+        const offset = circumference - (pct / 100) * circumference;
+        arc.style.strokeDasharray = circumference + ' ' + circumference;
+        arc.style.strokeDashoffset = circumference;
+        arc.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1)';
+        setTimeout(() => { arc.style.strokeDashoffset = offset; }, 200);
+      });
+    }
+
+    const donutContainers = document.querySelectorAll('.aud-card-wide');
+    const donutObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateDonuts(entry.target);
+          donutObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    donutContainers.forEach(c => donutObserver.observe(c));
+
+    // ── Floating brand logos ──
+    (function () {
+      const arena = document.getElementById('brandsArena');
+      if (!arena) return;
+
+      const brands = [
+        { name: 'Weleda',       url: 'https://www.weleda.fr',         logo: 'https://logo.clearbit.com/weleda.com'         },
+        { name: 'Zalando',      url: 'https://www.zalando.fr',        logo: 'https://logo.clearbit.com/zalando.fr'         },
+        { name: 'Philips Sound',url: 'https://www.philips.fr/sound',  logo: 'https://logo.clearbit.com/philips.com'        },
+        { name: 'easyJet',      url: 'https://www.easyjet.com/fr',    logo: 'https://logo.clearbit.com/easyjet.com'        },
+      ];
+
+      // Create elements
+      const nodes = brands.map(b => {
+        const a = document.createElement('a');
+        a.className = 'brand-logo';
+        a.href = b.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.title = b.name;
+
+        const img = document.createElement('img');
+        img.src = b.logo;
+        img.alt = b.name;
+
+        const fallback = document.createElement('span');
+        fallback.className = 'brand-fallback';
+        fallback.textContent = b.name;
+        fallback.style.display = 'none';
+
+        img.onerror = () => { img.style.display = 'none'; fallback.style.display = ''; };
+
+        a.appendChild(img);
+        a.appendChild(fallback);
+        arena.appendChild(a);
+        return a;
+      });
+
+      // Wait for layout then start physics
+      requestAnimationFrame(() => {
+        const arenaW = arena.offsetWidth;
+        const arenaH = arena.offsetHeight;
+
+        const particles = nodes.map((el, i) => {
+          const w = el.offsetWidth  || 160;
+          const h = el.offsetHeight || 68;
+          // Spread initial positions evenly
+          const x = 40 + (i % 2) * (arenaW * 0.45);
+          const y = 30 + Math.floor(i / 2) * (arenaH * 0.45);
+          // Random velocity — gentle speed
+          const speed = 0.55 + Math.random() * 0.45;
+          const angle = Math.random() * 2 * Math.PI;
+          return {
+            el, w, h,
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            hovered: false,
+          };
+        });
+
+        nodes.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            const p = particles.find(p => p.el === el);
+            if (p) { p._savedVx = p.vx; p._savedVy = p.vy; p.vx = 0; p.vy = 0; p.hovered = true; }
+          });
+          el.addEventListener('mouseleave', () => {
+            const p = particles.find(p => p.el === el);
+            if (p) {
+              p.vx = p._savedVx || 0.6;
+              p.vy = p._savedVy || 0.6;
+              p.hovered = false;
+            }
+          });
+        });
+
+        let active = true;
+
+        // Pause when arena is off-screen to save CPU
+        const pauseObserver = new IntersectionObserver(entries => {
+          active = entries[0].isIntersecting;
+        }, { threshold: 0.01 });
+        pauseObserver.observe(arena);
+
+        function tick() {
+          if (!active) { requestAnimationFrame(tick); return; }
+
+          const aW = arena.offsetWidth;
+          const aH = arena.offsetHeight;
+
+          particles.forEach(p => {
+            if (p.hovered) return;
+
+            p.x += p.vx;
+            p.y += p.vy;
+
+            // Bounce off walls
+            if (p.x <= 0) { p.x = 0; p.vx = Math.abs(p.vx); }
+            if (p.x + p.w >= aW) { p.x = aW - p.w; p.vx = -Math.abs(p.vx); }
+            if (p.y <= 0) { p.y = 0; p.vy = Math.abs(p.vy); }
+            if (p.y + p.h >= aH) { p.y = aH - p.h; p.vy = -Math.abs(p.vy); }
+
+            p.el.style.left = p.x + 'px';
+            p.el.style.top  = p.y + 'px';
+          });
+
+          requestAnimationFrame(tick);
+        }
+
+        // Set initial positions before first tick
+        particles.forEach(p => {
+          p.el.style.left = p.x + 'px';
+          p.el.style.top  = p.y + 'px';
+        });
+
+        requestAnimationFrame(tick);
+      });
+    })();
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
