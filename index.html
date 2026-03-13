@@ -2228,23 +2228,25 @@
         return a;
       });
 
-      // Wait for layout then start physics
-      requestAnimationFrame(() => {
+      // Double rAF: let browser fully render logos before measuring
+      requestAnimationFrame(() => requestAnimationFrame(() => {
         const arenaW = arena.offsetWidth;
         const arenaH = arena.offsetHeight;
 
         const particles = nodes.map((el, i) => {
+          // Measure actual rendered size (images may not be loaded yet — re-measured each tick)
           const w = el.offsetWidth  || 160;
           const h = el.offsetHeight || 68;
-          // Spread initial positions evenly
-          const x = 40 + (i % 2) * (arenaW * 0.45);
-          const y = 30 + Math.floor(i / 2) * (arenaH * 0.45);
-          // Random velocity — gentle speed
+          // Spread initial positions safely within bounds
+          const col = i % 2, row = Math.floor(i / 2);
+          const x = Math.min(col * (arenaW * 0.45) + 20, arenaW - w - 4);
+          const y = Math.min(row * (arenaH * 0.45) + 20, arenaH - h - 4);
           const speed = 0.55 + Math.random() * 0.45;
           const angle = Math.random() * 2 * Math.PI;
           return {
             el, w, h,
-            x, y,
+            x: Math.max(0, x),
+            y: Math.max(0, y),
             vx: Math.cos(angle) * speed,
             vy: Math.sin(angle) * speed,
             hovered: false,
@@ -2268,7 +2270,6 @@
 
         let active = true;
 
-        // Pause when arena is off-screen to save CPU
         const pauseObserver = new IntersectionObserver(entries => {
           active = entries[0].isIntersecting;
         }, { threshold: 0.01 });
@@ -2281,16 +2282,24 @@
           const aH = arena.offsetHeight;
 
           particles.forEach(p => {
+            // Re-measure each tick: handles image load + responsive resize
+            p.w = p.el.offsetWidth  || p.w;
+            p.h = p.el.offsetHeight || p.h;
+
             if (p.hovered) return;
 
             p.x += p.vx;
             p.y += p.vy;
 
-            // Bounce off walls
-            if (p.x <= 0) { p.x = 0; p.vx = Math.abs(p.vx); }
-            if (p.x + p.w >= aW) { p.x = aW - p.w; p.vx = -Math.abs(p.vx); }
-            if (p.y <= 0) { p.y = 0; p.vy = Math.abs(p.vy); }
-            if (p.y + p.h >= aH) { p.y = aH - p.h; p.vy = -Math.abs(p.vy); }
+            // Bounce + hard clamp so logos can never leave the arena
+            if (p.x <= 0)            { p.x = 0;          p.vx =  Math.abs(p.vx); }
+            if (p.x + p.w >= aW)     { p.x = aW - p.w;   p.vx = -Math.abs(p.vx); }
+            if (p.y <= 0)            { p.y = 0;           p.vy =  Math.abs(p.vy); }
+            if (p.y + p.h >= aH)     { p.y = aH - p.h;   p.vy = -Math.abs(p.vy); }
+
+            // Safety clamp (catches any floating-point drift)
+            p.x = Math.max(0, Math.min(p.x, aW - p.w));
+            p.y = Math.max(0, Math.min(p.y, aH - p.h));
 
             p.el.style.left = p.x + 'px';
             p.el.style.top  = p.y + 'px';
@@ -2299,14 +2308,28 @@
           requestAnimationFrame(tick);
         }
 
-        // Set initial positions before first tick
+        // Re-clamp all positions on window resize (orientation change, responsive)
+        window.addEventListener('resize', () => {
+          const aW = arena.offsetWidth;
+          const aH = arena.offsetHeight;
+          particles.forEach(p => {
+            p.w = p.el.offsetWidth  || p.w;
+            p.h = p.el.offsetHeight || p.h;
+            p.x = Math.max(0, Math.min(p.x, aW - p.w));
+            p.y = Math.max(0, Math.min(p.y, aH - p.h));
+            p.el.style.left = p.x + 'px';
+            p.el.style.top  = p.y + 'px';
+          });
+        }, { passive: true });
+
+        // Set initial positions
         particles.forEach(p => {
           p.el.style.left = p.x + 'px';
           p.el.style.top  = p.y + 'px';
         });
 
         requestAnimationFrame(tick);
-      });
+      }));
     })();
 
     // ── Smooth scroll ──
