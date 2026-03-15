@@ -1082,39 +1082,175 @@
       color: var(--gold);
     }
 
-    /* ─── Why Calvin ─── */
-    .why-section { background: var(--dark); }
+    /* ─── Reels Section ─── */
+    .reels-section { background: var(--dark); }
 
-    .why-grid {
+    .reels-sub {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 0.75rem;
+      max-width: 520px;
+    }
+
+    .reels-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      gap: 1.4rem;
       margin-top: 3.5rem;
     }
 
-    .why-item {
-      text-align: center;
-      padding: 2rem;
+    .reel-card {
+      position: relative;
+      display: block;
+      text-decoration: none;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      aspect-ratio: 9 / 16;
+      background: linear-gradient(160deg, #180d20 0%, #0e0e14 40%, #0a121a 100%);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: transform 0.35s ease, border-color 0.35s, box-shadow 0.35s;
     }
 
-    .why-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .reel-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: rgba(225, 48, 108, 0.45);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.55), 0 0 50px rgba(225,48,108,0.08), 0 0 0 1px rgba(225,48,108,0.1);
     }
 
-    .why-title {
-      font-family: var(--ff-head);
-      font-size: 1.2rem;
-      font-weight: 400;
+    /* Instagram gradient stripe */
+    .reel-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #F58529, #E1306C, #833AB4);
+      z-index: 2;
+      opacity: 0.85;
+    }
+
+    /* Bottom fade */
+    .reel-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 45%;
+      background: linear-gradient(to top, rgba(7,7,9,0.75), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Per-card glow blob */
+    .reel-glow {
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      pointer-events: none;
+    }
+
+    .reel-card:nth-child(1) .reel-glow { background: radial-gradient(ellipse at 60% 35%, rgba(131,58,180,0.18) 0%, transparent 60%); }
+    .reel-card:nth-child(2) .reel-glow { background: radial-gradient(ellipse at 40% 40%, rgba(225,48,108,0.15) 0%, transparent 60%); }
+    .reel-card:nth-child(3) .reel-glow { background: radial-gradient(ellipse at 55% 30%, rgba(245,133,41,0.12) 0%, transparent 60%); }
+    .reel-card:nth-child(4) .reel-glow { background: radial-gradient(ellipse at 45% 45%, rgba(201,166,107,0.12) 0%, transparent 60%); }
+    .reel-card:nth-child(5) .reel-glow { background: radial-gradient(ellipse at 60% 35%, rgba(105,201,208,0.10) 0%, transparent 60%); }
+    .reel-card:nth-child(6) .reel-glow { background: radial-gradient(ellipse at 40% 40%, rgba(131,58,180,0.14) 0%, transparent 60%); }
+
+    /* Header: tag + number */
+    .reel-header {
+      position: absolute;
+      top: 0.9rem; left: 0.9rem; right: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .reel-tag {
+      background: rgba(7,7,9,0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
       color: var(--white);
-      margin-bottom: 0.6rem;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 20px;
     }
 
-    .why-text {
+    .reel-num {
+      font-family: var(--ff-head);
       font-size: 0.85rem;
       font-weight: 300;
-      color: var(--muted);
-      line-height: 1.75;
+      color: rgba(201,166,107,0.5);
+    }
+
+    /* Play button — centered */
+    .reel-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      z-index: 3;
+    }
+
+    .reel-card:hover .reel-play {
+      background: rgba(225,48,108,0.28);
+      border-color: rgba(225,48,108,0.65);
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    /* Footer: platform + views */
+    .reel-footer {
+      position: absolute;
+      bottom: 0.9rem; left: 0.9rem; right: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 3;
+    }
+
+    .reel-platform {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .reel-platform-label {
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: rgba(248,246,242,0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .reel-views {
+      font-size: 0.64rem;
+      font-weight: 600;
+      color: var(--gold);
+      background: rgba(201,166,107,0.1);
+      border: 1px solid rgba(201,166,107,0.2);
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 900px) {
+      .reels-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .reels-grid { gap: 0.75rem; }
     }
 
     /* ─── Contact Section ─── */
@@ -1413,7 +1549,7 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-socials { flex-wrap: wrap; }
       .hero-actions { flex-direction: column; align-items: center; }
-      .hero { padding-bottom: 9rem; }
+      .hero { padding-bottom: 5.5rem; }
       .aud-insights { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
       .aud-insight-card { padding: 1.2rem 0.9rem; }
       .aud-combined-card { padding: 1.4rem; }
@@ -1429,6 +1565,7 @@
     <ul class="nav-links">
       <li><a href="#about" data-i18n="nav-about">À propos</a></li>
       <li><a href="#platforms" data-i18n="nav-platforms">Plateformes</a></li>
+      <li><a href="#reels" data-i18n="nav-reels">Reels</a></li>
       <li><a href="#audience" data-i18n="nav-audience">Audience</a></li>
       <li><a href="#services" data-i18n="nav-services">Services</a></li>
     </ul>
@@ -1713,6 +1850,135 @@
 
   <div class="divider"></div>
 
+  <!-- ─── Reels ─── -->
+  <section class="reels-section" id="reels">
+    <div class="container">
+      <p class="section-label reveal" data-i18n="reels-label">Contenu créatif</p>
+      <h2 class="section-title reveal reveal-delay-1" data-i18n-html="reels-title">Top <em>Reels</em></h2>
+      <p class="reels-sub reveal reveal-delay-2" data-i18n="reels-sub">Mes 6 meilleurs reels en termes de performance — formats, style et engagement.</p>
+
+      <div class="reels-grid">
+
+        <!-- Reel 1 · Pour mettre à jour les vues : remplace "— vues" par ex. "250K vues" -->
+        <a href="https://www.instagram.com/reel/DRm0wDADGdq/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-1">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel1-tag">Danse</span>
+            <span class="reel-num">01</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+        <!-- Reel 2 -->
+        <a href="https://www.instagram.com/reel/DVJf5ExjBOp/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-2">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel2-tag">Lifestyle</span>
+            <span class="reel-num">02</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+        <!-- Reel 3 -->
+        <a href="https://www.instagram.com/reels/DLDW9-KCPd2/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-3">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel3-tag">Trending</span>
+            <span class="reel-num">03</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+        <!-- Reel 4 -->
+        <a href="https://www.instagram.com/reel/DT2-5mdE5EM/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-1">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel4-tag">Danse</span>
+            <span class="reel-num">04</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+        <!-- Reel 5 -->
+        <a href="https://www.instagram.com/reel/DVqhmwyCA2D/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-2">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel5-tag">Lifestyle</span>
+            <span class="reel-num">05</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+        <!-- Reel 6 -->
+        <a href="https://www.instagram.com/reel/DVrAbo1DJpX/" target="_blank" rel="noopener noreferrer" class="reel-card reveal reveal-delay-3">
+          <div class="reel-glow"></div>
+          <div class="reel-header">
+            <span class="reel-tag" data-i18n="reel6-tag">Danse</span>
+            <span class="reel-num">06</span>
+          </div>
+          <div class="reel-play">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="reel-footer">
+            <div class="reel-platform">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="11" height="11" fill="rgba(248,246,242,0.4)"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <span class="reel-platform-label">Reel</span>
+            </div>
+            <span class="reel-views" data-i18n="reel-na">— vues</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
   <!-- ─── Audience ─── -->
   <section class="audience-section" id="audience">
     <div class="container">
@@ -1958,7 +2224,7 @@
     // ════════════════════════════════════════════
     const i18n = {
       fr: {
-        'nav-about': 'À propos', 'nav-platforms': 'Plateformes', 'nav-audience': 'Audience',
+        'nav-about': 'À propos', 'nav-platforms': 'Plateformes', 'nav-reels': 'Reels', 'nav-audience': 'Audience',
         'nav-services': 'Services', 'nav-cta': 'Collaborer',
         'hero-eyebrow': 'Media Kit · 2026',
         'hero-subtitle': 'Créateur de contenu · Danse & Lifestyle<br>Inspirez-vous. Bougez. Vivez.',
@@ -1995,6 +2261,11 @@
         'serv5-desc': "Partenariats durables pour incarner votre marque avec continuité et cohérence, construisant une association mémorable dans l'esprit de mon audience.",
         'serv6-title': 'Création de Contenu UGC',
         'serv6-desc': "Production de visuels et vidéos haute qualité que vous pouvez utiliser dans vos propres canaux publicitaires et réseaux sociaux.",
+        'reels-label': 'Contenu créatif', 'reels-title': 'Top <em>Reels</em>',
+        'reels-sub': "Mes 6 meilleurs reels en termes de performance — formats, style et engagement.",
+        'reel1-tag': 'Danse', 'reel2-tag': 'Lifestyle', 'reel3-tag': 'Trending',
+        'reel4-tag': 'Danse', 'reel5-tag': 'Lifestyle', 'reel6-tag': 'Danse',
+        'reel-na': '— vues',
         'trust-label': "Ils m'ont fait confiance", 'trust-title': 'Partenaires & <em>Présences</em>',
         'trust-brands-sub': 'Collaborations de marques',
         'trust-brands-desc': "Des partenariats sélectionnés avec soin, alignés avec mes valeurs et mon univers.",
@@ -2010,7 +2281,7 @@
         'footer-text': '© 2026 <span>Calvin</span> · Media Kit · Tous droits réservés',
       },
       en: {
-        'nav-about': 'About', 'nav-platforms': 'Platforms', 'nav-audience': 'Audience',
+        'nav-about': 'About', 'nav-platforms': 'Platforms', 'nav-reels': 'Reels', 'nav-audience': 'Audience',
         'nav-services': 'Services', 'nav-cta': 'Work Together',
         'hero-eyebrow': 'Media Kit · 2026',
         'hero-subtitle': 'Content Creator · Dance & Lifestyle<br>Get inspired. Move. Live.',
@@ -2047,6 +2318,11 @@
         'serv5-desc': "Lasting partnerships to embody your brand with continuity and consistency, building a memorable association in my audience's mind.",
         'serv6-title': 'UGC Content Creation',
         'serv6-desc': "Production of high-quality visuals and videos that you can use in your own advertising channels and social networks.",
+        'reels-label': 'Creative content', 'reels-title': 'Top <em>Reels</em>',
+        'reels-sub': "My 6 best reels in terms of performance — formats, style and engagement.",
+        'reel1-tag': 'Dance', 'reel2-tag': 'Lifestyle', 'reel3-tag': 'Trending',
+        'reel4-tag': 'Dance', 'reel5-tag': 'Lifestyle', 'reel6-tag': 'Dance',
+        'reel-na': '— views',
         'trust-label': 'They trusted me', 'trust-title': 'Partners & <em>Events</em>',
         'trust-brands-sub': 'Brand Collaborations',
         'trust-brands-desc': "Carefully selected partnerships, aligned with my values and universe.",
