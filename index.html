@@ -1505,7 +1505,7 @@
     }
 
     @media (max-width: 600px) {
-      .events-grid { grid-template-columns: 1fr; }
+      .events-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ─── Keyframes ─── */
@@ -1526,6 +1526,8 @@
       .nav-links { display: none; }
       .hero-numbers { flex-wrap: wrap; }
       .hero-num { flex: 1 1 calc(50% - 1rem); border-radius: var(--radius); border: 1px solid var(--border) !important; margin: 0.2rem; }
+      .hero-num:first-child, .hero-num:last-child { border-radius: var(--radius); }
+      .hero-num:not(:first-child) { border-left: 1px solid var(--border); }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-badge { right: 1rem; }
       .platforms-grid { grid-template-columns: 1fr; }
@@ -1548,7 +1550,8 @@
       .services-grid { grid-template-columns: 1fr; }
       .contact-socials { flex-wrap: wrap; }
       .hero-actions { flex-direction: column; align-items: center; }
-      .hero { padding-bottom: 5.5rem; }
+      .hero { padding-bottom: 3rem; }
+      .scroll-hint { position: relative; bottom: auto; left: auto; transform: none; margin-top: 2.5rem; }
       .aud-insights { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
       .aud-insight-card { padding: 1.2rem 0.9rem; }
       .aud-combined-card { padding: 1.4rem; }
@@ -1862,7 +1865,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">STORYTELLING</span>
-            <span class="reel-num">01</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1880,7 +1882,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">LIFESTYLE</span>
-            <span class="reel-num">02</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1898,7 +1899,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">CAR MOMENT</span>
-            <span class="reel-num">03</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1916,7 +1916,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">TUTORIAL</span>
-            <span class="reel-num">04</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1934,7 +1933,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">DUO</span>
-            <span class="reel-num">05</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1952,7 +1950,6 @@
           <div class="reel-glow"></div>
           <div class="reel-header">
             <span class="reel-tag">TIPS</span>
-            <span class="reel-num">06</span>
           </div>
           <div class="reel-play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="white"><path d="M8 5v14l11-7z"/></svg>
